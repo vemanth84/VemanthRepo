@@ -11,8 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "HomeLoan_converstion-Charges.PNG",
-				"folderPath": "vemanth1",
-				"container": "vemanthstorage.blob.core.windows.net"
+				"folderPath": "vemanth1"
 			}
 		}
 	}
