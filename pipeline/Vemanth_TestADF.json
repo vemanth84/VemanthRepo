@@ -64,7 +64,7 @@
 						"referenceName": "Source_FIle_Location",
 						"type": "DatasetReference"
 					},
-					"timeout": "7.00:00:00",
+					"timeout": "0.00:00:30",
 					"sleep": 10
 				}
 			},
