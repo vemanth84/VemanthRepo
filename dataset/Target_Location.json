@@ -13,7 +13,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"folderPath": "vemanth1",
-				"container": "vemanthstorage"
+				"container": "vemanthstorage.blob.core.windows.net"
 			}
 		}
 	}
