@@ -47,7 +47,7 @@
 				]
 			},
 			{
-				"name": "Delete1",
+				"name": "Delete from Vemanth2",
 				"type": "Delete",
 				"dependsOn": [
 					{
