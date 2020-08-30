@@ -6,10 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "vemanthADF"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		}
 	},
 	"variables": {
@@ -64,15 +60,13 @@
 						"inputs": [
 							{
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Target_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -84,8 +78,7 @@
 						"typeProperties": {
 							"dataset": {
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"timeout": "0.00:00:30",
 							"sleep": 10
@@ -113,8 +106,7 @@
 						"typeProperties": {
 							"dataset": {
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"logStorageSettings": {
 								"linkedServiceName": {
@@ -136,9 +128,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Source_FIle_Location')]",
-				"[concat(variables('factoryId'), '/datasets/Target_Location')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/datasets/Source_FIle_Location')]"
 			]
 		},
 		{
@@ -160,79 +150,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Target_Location')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [
-					"Vemanth"
-				],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"container": "vemanth2"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Copying File ",
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Vemanth_TestADF_Houly')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [
-					"Vemanth"
-				],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "Vemanth_TestADF",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2020-08-30T17:57:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Vemanth_TestADF')]"
-			]
 		}
 	]
 }
