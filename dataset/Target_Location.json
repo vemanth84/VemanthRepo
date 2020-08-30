@@ -5,6 +5,12 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Vemanth": {
+				"type": "string",
+				"defaultValue": "PNGFIle"
+			}
+		},
 		"annotations": [
 			"Vemanth"
 		],
