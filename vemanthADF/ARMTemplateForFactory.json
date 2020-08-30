@@ -94,8 +94,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "HomeLoan_converstion-Charges.PNG",
-						"folderPath": "vemanth1",
-						"container": "vemanthstorage"
+						"container": "vemanth1"
 					}
 				}
 			},
@@ -119,8 +118,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "vemanth1",
-						"container": "vemanthstorage"
+						"container": "vemanth2"
 					}
 				}
 			},
