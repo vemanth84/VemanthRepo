@@ -12,7 +12,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "vemanth1"
+				"container": "vemanth2"
 			}
 		}
 	}
