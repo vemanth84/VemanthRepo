@@ -4,11 +4,11 @@
 		"description": "Vemanth Testing ADF",
 		"activities": [
 			{
-				"name": "Copy Data from source to Target",
+				"name": "Vemanth1 to Vemanth2",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "FileScanner",
+						"activity": "FileScanner Vemanth1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -55,9 +55,16 @@
 				]
 			},
 			{
-				"name": "FileScanner",
+				"name": "FileScanner Vemanth1",
 				"type": "Validation",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Vemanth_SouceCopy",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
@@ -69,11 +76,11 @@
 				}
 			},
 			{
-				"name": "Delete Source File",
+				"name": "Delete Vemanth1",
 				"type": "Delete",
 				"dependsOn": [
 					{
-						"activity": "Copy Data from source to Target",
+						"activity": "Vemanth1 to Vemanth2",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -104,6 +111,19 @@
 						"type": "AzureBlobStorageReadSettings",
 						"recursive": true
 					}
+				}
+			},
+			{
+				"name": "Vemanth_SouceCopy",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Vemanth_SourceCopy",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
 				}
 			}
 		],
