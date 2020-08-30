@@ -12,7 +12,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "HomeLoan_converstion-Charges.PNG",
 				"container": "vemanth2"
 			}
 		}
