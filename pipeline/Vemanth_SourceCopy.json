@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Vemanth to Vemanth1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -45,6 +45,60 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Delete1",
+				"type": "Delete",
+				"dependsOn": [
+					{
+						"activity": "Wait10",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "Target_Location",
+						"type": "DatasetReference"
+					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"path": "vemanth2"
+					},
+					"enableLogging": true,
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true
+					}
+				}
+			},
+			{
+				"name": "Wait10",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Vemanth to Vemanth1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 60
+				}
 			}
 		],
 		"annotations": [
