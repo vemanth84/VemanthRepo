@@ -1,0 +1,19 @@
+{
+	"name": "Target_Location",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [
+			"Vemanth"
+		],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "vemanth2"
+			}
+		}
+	}
+}
