@@ -5,12 +5,6 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"Vemanth": {
-				"type": "string",
-				"defaultValue": "PNGFIle"
-			}
-		},
 		"annotations": [
 			"Vemanth"
 		],
@@ -18,7 +12,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "vemanth2"
+				"folderPath": "vemanth1",
+				"container": "vemanthstorage"
 			}
 		}
 	}
