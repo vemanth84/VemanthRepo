@@ -10,7 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "vemanth1"
+				"fileName": "HomeLoan_converstion-Charges.PNG",
+				"folderPath": "vemanth1",
+				"container": "vemanthstorage"
 			}
 		}
 	}
