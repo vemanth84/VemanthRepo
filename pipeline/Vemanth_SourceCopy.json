@@ -47,7 +47,7 @@
 				]
 			},
 			{
-				"name": "Delete from Vemanth2",
+				"name": "Delete from Vemanth",
 				"type": "Delete",
 				"dependsOn": [
 					{
@@ -67,7 +67,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Target_Location",
+						"referenceName": "SourceFile_ToPipeline",
 						"type": "DatasetReference"
 					},
 					"logStorageSettings": {
