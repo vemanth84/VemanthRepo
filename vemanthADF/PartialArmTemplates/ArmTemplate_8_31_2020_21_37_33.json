@@ -6,10 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "vemanthADF"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		}
 	},
 	"variables": {
@@ -44,8 +40,7 @@
 						"typeProperties": {
 							"dataset": {
 								"referenceName": "Target_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"logStorageSettings": {
 								"linkedServiceName": {
@@ -94,15 +89,13 @@
 						"inputs": [
 							{
 								"referenceName": "Target_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "SourceFile_ToPipeline",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -128,9 +121,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Target_Location')]",
-				"[concat(variables('factoryId'), '/datasets/SourceFile_ToPipeline')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/datasets/Target_Location')]"
 			]
 		},
 		{
@@ -173,15 +164,13 @@
 						"inputs": [
 							{
 								"referenceName": "SourceFile_ToPipeline",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -207,8 +196,7 @@
 						"typeProperties": {
 							"dataset": {
 								"referenceName": "SourceFile_ToPipeline",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"logStorageSettings": {
 								"linkedServiceName": {
@@ -245,11 +233,7 @@
 					"Vemanth"
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceFile_ToPipeline')]",
-				"[concat(variables('factoryId'), '/datasets/Source_FIle_Location')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Vemanth_TestADF')]",
@@ -299,15 +283,13 @@
 						"inputs": [
 							{
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Target_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -326,8 +308,7 @@
 						"typeProperties": {
 							"dataset": {
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"timeout": "0.00:00:30",
 							"sleep": 10
@@ -355,8 +336,7 @@
 						"typeProperties": {
 							"dataset": {
 								"referenceName": "Source_FIle_Location",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							},
 							"logStorageSettings": {
 								"linkedServiceName": {
@@ -382,8 +362,7 @@
 								"referenceName": "Vemanth_SourceCopy",
 								"type": "PipelineReference"
 							},
-							"waitOnCompletion": true,
-							"parameters": {}
+							"waitOnCompletion": true
 						}
 					},
 					{
@@ -403,8 +382,7 @@
 								"referenceName": "Copy_Vemanth2_Vemanth",
 								"type": "PipelineReference"
 							},
-							"waitOnCompletion": true,
-							"parameters": {}
+							"waitOnCompletion": true
 						}
 					}
 				],
@@ -413,57 +391,9 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Source_FIle_Location')]",
 				"[concat(variables('factoryId'), '/datasets/Target_Location')]",
 				"[concat(variables('factoryId'), '/pipelines/Vemanth_SourceCopy')]",
-				"[concat(variables('factoryId'), '/pipelines/Copy_Vemanth2_Vemanth')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceFile_ToPipeline')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "HomeLoan_converstion-Charges.PNG",
-						"container": "vemanth"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Source_FIle_Location')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "HomeLoan_converstion-Charges.PNG",
-						"container": "vemanth1"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/pipelines/Copy_Vemanth2_Vemanth')]"
 			]
 		},
 		{
@@ -485,22 +415,6 @@
 						"fileName": "HomeLoan_converstion-Charges.PNG",
 						"container": "vemanth2"
 					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Copying File ",
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
 				}
 			},
 			"dependsOn": []
