@@ -31,7 +31,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Vemanth_Triger_hourly')]",
+			"name": "[concat(parameters('factoryName'), '/Vemanth_Triger_Minutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -41,9 +41,9 @@
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "Hour",
-						"interval": 1,
-						"startTime": "2020-08-31T16:15:00.000Z",
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2020-08-31T16:14:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -526,12 +526,12 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Vemanth_Triger_Minutes')]",
+			"name": "[concat(parameters('factoryName'), '/Vemanth_Triger_hourly')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -544,9 +544,9 @@
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2020-08-31T16:14:00.000Z",
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2020-08-31T16:15:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
