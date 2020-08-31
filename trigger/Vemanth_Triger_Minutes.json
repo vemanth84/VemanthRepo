@@ -2,7 +2,7 @@
 	"name": "Vemanth_Triger_Minutes",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
