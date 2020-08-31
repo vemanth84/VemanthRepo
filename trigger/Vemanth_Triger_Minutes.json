@@ -1,0 +1,24 @@
+{
+	"name": "Vemanth_Triger_Minutes",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Vemanth_TestADF",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2020-08-31T16:14:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
