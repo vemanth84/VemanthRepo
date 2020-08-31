@@ -125,6 +125,26 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "Copy Vemanth2 to  Vemanth",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Delete Vemanth1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Copy_Vemanth2_Vemanth",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"annotations": [
